@@ -4,7 +4,7 @@
 	<div class="card">
 		<div class="card-header text-white bg-dark">Cadastro</div>
 		<div class="card-body">
-<!-- 			teste -->
+
 			<form action="#" method="post" name="form1" id="form1"
 				class="needs-validation_" novalidate>
 				<s:if test='pessoa.id != null'>
