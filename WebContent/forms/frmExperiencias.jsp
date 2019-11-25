@@ -13,13 +13,7 @@
 					<input type="hidden" id="id" name="experiencias.id"
 						value="${experiencias.id}">
 				</s:if>
-					<label for="nome">Nome </label>
-				<s:select label="Pessoa" headerKey="" headerValue="---Selecione---"
-					list="lstPessoa" listKey="id" listValue="nome"
-					name="experiencias.pessoa.id" theme="simple"
-					cssClass="form-control" required="true" />
-				<div class="invalid-feedback">Por favor, selecione seu nome.</div>
-
+		
 				<div class="form-row">
 					<label for="nome">Nome da Empresa:</label> <input type="text"
 						class="form-control" id="nome" name="experiencias.nomeEmpresa"

@@ -12,6 +12,25 @@
 				</s:if>
 
 				<div class="form-row">
+				
+				<div class="col-md-6 mb-6">
+						<label for="email">Email </label> <input type="text"
+							class="form-control" id="email" name="pessoa.email"
+							placeholder="Informe seu nome" value="${pessoa.email}"
+							maxlength="100" required>
+						<div class="invalid-feedback">Por favor, informe seu email.</div>
+					</div>
+					
+					<div class="col-md-6 mb-6">
+						<label for="email">Confirma Senha </label> <input type="password"
+							class="form-control" id="senha" name="pessoa.senha"
+							placeholder="Informe seu senha" value=""
+							maxlength="100" required>
+						<div class="invalid-feedback">Por favor, informe seu email.</div>
+					</div>
+					
+					<hr />
+					
 					<label for="nome">Nome </label> <input type="text"
 						class="form-control" id="nome" name="pessoa.nome"
 						placeholder="Informe seu nome" value="${pessoa.nome}"
@@ -53,14 +72,7 @@
 				</div>
 
 				<div class="form-row">
-					<div class="col-md-6 mb-6">
-						<label for="email">Email </label> <input type="text"
-							class="form-control" id="email" name="pessoa.email"
-							placeholder="Informe seu nome" value="${pessoa.email}"
-							maxlength="100" required>
-						<div class="invalid-feedback">Por favor, informe seu email.</div>
-					</div>
-
+					
 					<div class="col-md-3 mb-3">
 						<label for="telefone1">Telefone </label> <input type="text"
 							class="form-control" id="telefone1" name="pessoa.telefone1"

@@ -2,6 +2,9 @@ package br.jus.tream.action;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -13,7 +16,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import br.jus.tream.DAO.ExperienciasDAO;
 import br.jus.tream.DAO.ExperienciasDAOImpl;
-import br.jus.tream.DAO.PessoaDAOImpl;
 import br.jus.tream.dominio.BeanResult;
 import br.jus.tream.dominio.Experiencias;
 import br.jus.tream.dominio.Pessoa;
@@ -34,8 +36,12 @@ public class ActionExperiencias extends ActionSupport {
 	@Action(value = "listar", results = { @Result(name = "success", location = "/consultas/"),
 			@Result(name = "error", location = "/result.jsp") }, interceptorRefs = @InterceptorRef("authStack"))
 	public String listar() {
-		try {
-			this.lstExperiencias = dao.listarTodos();
+		try {		
+			HttpSession session = ServletActionContext.getRequest().getSession(true);
+			Pessoa b = (Pessoa) session.getAttribute("login");
+			
+			this.lstExperiencias = dao.listarPorIdPessoa(b.getId());
+			
 		} catch (Exception e) {
 			addActionError(getText("listar.error"));
 			return "error";
@@ -49,8 +55,12 @@ public class ActionExperiencias extends ActionSupport {
 	// , interceptorRefs = @InterceptorRef("authStack")
 	)
 	public String listarJson() {
-		try {
-			this.lstExperiencias = dao.listarTodos();
+		try {		
+		HttpSession session = ServletActionContext.getRequest().getSession(true);
+		Pessoa b = (Pessoa) session.getAttribute("login");
+		
+		this.lstExperiencias = dao.listarPorIdPessoa(b.getId());
+		
 		} catch (Exception e) {
 			addActionError(getText("listar.error"));
 			return "error";
@@ -62,8 +72,8 @@ public class ActionExperiencias extends ActionSupport {
 			@Result(name = "error", location = "/pages/error.jsp") }, interceptorRefs = @InterceptorRef("authStack"))
 	public String doFrmEditar() {
 		try {
+			
 			this.experiencias = dao.getBean(this.experiencias.getId());
-			this.lstPessoa = PessoaDAOImpl.getInstance().listarTodos();
 
 		} catch (Exception e) {
 			addActionError(getText("frmsetup.error") + " Error: " + e.getMessage());
@@ -75,14 +85,6 @@ public class ActionExperiencias extends ActionSupport {
 	@Action(value = "frmCad", results = { @Result(name = "success", location = "/forms/frmExperiencias.jsp"),
 			@Result(name = "error", location = "/pages/error.jsp") }, interceptorRefs = @InterceptorRef("authStack"))
 	public String frmCadEleicao() {
-		try {
-
-			this.lstPessoa = PessoaDAOImpl.getInstance().listarTodos();
-
-		} catch (Exception e) {
-			addActionError(getText("frmsetup.error") + " Error: " + e.getMessage());
-			return "error";
-		}
 		return "success";
 	}
 
@@ -91,6 +93,12 @@ public class ActionExperiencias extends ActionSupport {
 	public String doAdicionar() {
 		BeanResult beanResult = new BeanResult();
 		try {
+			HttpSession session = ServletActionContext.getRequest().getSession(true);
+			Pessoa b = (Pessoa) session.getAttribute("login");
+			Pessoa pessoa = new Pessoa();
+			pessoa.setId(b.getId());
+			experiencias.setPessoa(pessoa);
+			
 			beanResult.setRet(dao.adicionar(experiencias));
 			if (beanResult.getRet() == 1) {
 				beanResult.setMensagem(getText("inserir.sucesso"));

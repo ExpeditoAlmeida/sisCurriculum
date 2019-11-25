@@ -156,7 +156,7 @@ body, html {
 	                <input type="password" name = "userpass" class="form-control" placeholder="chave de acesso" required autocomplete="off">
 	                
 	                <button class="btn btn-primary btn-block" type="submit">Entrar</button> 
-	                <br> <a href="${pageContext.request.contextPath}/usuario/frmCad" style="color: #1E90FF;">
+	                <br> <a href="${pageContext.request.contextPath}/pessoa/frmCadUser" style="color: #1E90FF;">
 				 			Não  cadastrando? Criar Cadastro
           			  </a>               
        </form>

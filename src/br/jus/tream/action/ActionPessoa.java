@@ -2,6 +2,9 @@ package br.jus.tream.action;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.InterceptorRef;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -37,8 +40,12 @@ public class ActionPessoa extends ActionSupport {
 			@Result(name = "error", location = "/result.jsp") }, interceptorRefs = @InterceptorRef("authStack"))
 	public String listar() {
 		try {
-			this.lstPessoa = dao.listarTodos();
-			this.lstExperiencias = daoExperiencias.listarTodos();
+			
+			HttpSession session = ServletActionContext.getRequest().getSession(true);
+			Pessoa b = (Pessoa) session.getAttribute("login");
+			
+			this.lstPessoa = dao.listarPorIdPessoa(b.getId());			
+			this.lstExperiencias = daoExperiencias.listarPorIdPessoa(b.getId());
 		} catch (Exception e) {
 			addActionError(getText("listar.error"));
 			return "error";
@@ -92,11 +99,25 @@ public class ActionPessoa extends ActionSupport {
 	@Action(value = "frmCad", results = { @Result(name = "success", location = "/forms/frmPessoa.jsp"),
 			@Result(name = "error", location = "/pages/error.jsp") }, interceptorRefs = @InterceptorRef("authStack"))
 	public String frmCadEleicao() {
+		try {
+			HttpSession session = ServletActionContext.getRequest().getSession(true);
+			Pessoa b = (Pessoa)session.getAttribute("login");
+			this.pessoa = dao.getBean(b.getId());
+		} catch (Exception e) {
+			addActionError(getText("frmsetup.error") + " Error: " + e.getMessage());
+			return "error";
+		}
+		return "success";
+	}
+	
+	@Action(value = "frmCadUser", results = { @Result(name = "success", location = "/forms/frmUsuario.jsp"),
+			@Result(name = "error", location = "/pages/error.jsp") })
+	public String frmCadUser() {
 		return "success";
 	}
 
 	@Action(value = "adicionar", results = { @Result(name = "success", type = "json", params = { "root", "result" }),
-			@Result(name = "error", location = "/pages/resultAjax.jsp") }, interceptorRefs = @InterceptorRef("authStack"))
+			@Result(name = "error", location = "/pages/resultAjax.jsp") })
 	public String doAdicionar() {
 		BeanResult beanResult = new BeanResult();
 		try {

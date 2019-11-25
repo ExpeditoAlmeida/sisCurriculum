@@ -2,6 +2,9 @@ package br.jus.tream.DAO;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
 import br.jus.tream.dominio.Pessoa;
 
 public class PessoaDAOImpl implements PessoaDAO {
@@ -15,6 +18,34 @@ public class PessoaDAOImpl implements PessoaDAO {
 			db = new PessoaDAOImpl();
 		}
 		return db;
+	}
+
+	@Override
+	public List<Pessoa> listarPorIdPessoa(int id) throws Exception {
+		List<Pessoa> lista = null;
+		EntityManager em = EntityManagerProvider.getInstance().createManager();
+		try {
+			TypedQuery<Pessoa> query = em.createQuery("SELECT c FROM Pessoa c WHERE c.id = ?1", Pessoa.class);
+			lista = query.setParameter(1, id).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
+
+	@Override
+	public Pessoa getBean(String email) throws Exception {
+		Pessoa pessoa = new Pessoa();
+		EntityManager em = EntityManagerProvider.getInstance().createManager();
+		try {
+			TypedQuery<Pessoa> query = em.createQuery("SELECT c FROM Pessoa c WHERE c.email = :email", Pessoa.class);
+			pessoa = query.setParameter("email", email).getSingleResult();
+		} catch (Exception e) {
+			// e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return pessoa;
 	}
 
 	@Override
@@ -32,6 +63,7 @@ public class PessoaDAOImpl implements PessoaDAO {
 	public int adicionar(Pessoa pessoa) throws Exception {
 		int ret = 0;
 		try {
+			pessoa.setSenha(FuncsUtils.getInstance().encriptar(pessoa.getSenha()));
 			dao.adicionar(pessoa);
 			ret = 1;
 		} catch (Exception e) {
@@ -45,6 +77,7 @@ public class PessoaDAOImpl implements PessoaDAO {
 	public int atualizar(Pessoa pessoa) throws Exception {
 		int ret = 0;
 		try {
+			pessoa.setSenha(FuncsUtils.getInstance().encriptar(pessoa.getSenha()));
 			dao.atualizar(pessoa);
 			ret = 1;
 		} catch (Exception e) {
@@ -84,8 +117,6 @@ public class PessoaDAOImpl implements PessoaDAO {
 		int ret = dao.adicionar(pessoa);
 		System.out.println("ret" + ret);
 
-		
-	
 	}
 
 }

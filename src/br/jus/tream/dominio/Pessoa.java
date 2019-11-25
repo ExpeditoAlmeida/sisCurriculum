@@ -20,6 +20,11 @@ public class Pessoa implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	@NotNull
+	private String email;
+	@NotNull
+	private String senha;
 
 	private Integer estadoCivil;
 
@@ -28,8 +33,7 @@ public class Pessoa implements Serializable {
 	@Column(name = "cpf")
 	private String cpf;
 
-	@Column(length = 255)
-	@NotNull
+	@Column(length = 255)	
 	private String nome;
 	
 	@Column(name = "sexo", length = 12)
@@ -38,9 +42,7 @@ public class Pessoa implements Serializable {
 	private String telefone1;
 
 	private String telefone2;
-
-	private String email;
-
+	
 	private String cep;
 
 	private String cidade;
@@ -228,6 +230,14 @@ public class Pessoa implements Serializable {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }

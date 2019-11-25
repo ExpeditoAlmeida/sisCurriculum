@@ -7,7 +7,7 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 
-import br.jus.tream.dominio.Usuario;
+import br.jus.tream.dominio.Pessoa;
 
 @SuppressWarnings("serial")
 public class AppInterceptor implements Interceptor {
@@ -26,12 +26,12 @@ public class AppInterceptor implements Interceptor {
 		/* VERIFICANDO A SESSÃO */
 		try {
 			HttpSession session = ServletActionContext.getRequest().getSession(true);
-			Usuario b = (Usuario) session.getAttribute("login");
-			if (b.getNome() == null) {
+			Pessoa b = (Pessoa) session.getAttribute("login");
+			if (b.getEmail() == null) {
 				 System.out.println("Sessão expirada");
 				result = "error";
 			} else {
-				 System.out.println("Sessão Ativa - titulo : " + b.getNome());
+				 System.out.println("Sessão Ativa - titulo : " + b.getEmail());
 				result = invocation.invoke();
 			}
 		} catch (Exception e) { 

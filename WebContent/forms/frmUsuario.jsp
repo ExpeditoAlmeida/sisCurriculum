@@ -8,24 +8,19 @@
 
 			<form action="#" method="post" name="form1" id="form1"
 				class="needs-validation_" novalidate>
-				<s:if test='usuario.id != null'>
-					<input type="hidden" id="id" name="experiencias.id"
-						value="${usuario.id}">
-				</s:if>
-
-
+			
 				<div class="form-row">
 					<label for="cpf">*Nome de usuário:</label> <input type="text"
-						class="form-control" id="cpf" name="usuario.nome"
-						placeholder="Digite aqui seu nome de usuário." value="${usuario.nome}"
+						class="form-control" id="cpf" name="pessoa.email"
+						placeholder="Digite aqui seu nome de usuário." value="${pessoa.email}"
 						maxlength="100" required>
 					<div class="invalid-feedback">Por favor, informe o nome de usuário.</div>
 				</div>
 
 				<div class="form-row">
 					<label for="cpf">*senha:</label> <input type="text"
-						class="form-control" id="cpf" name="usuario.senha"
-						placeholder="Digite aqui uma senha" value="${usuario.senha}"
+						class="form-control" id="cpf" name="pessoa.senha"
+						placeholder="Digite aqui uma senha" value="${pessoa.senha}"
 						maxlength="100" required>
 					<div class="invalid-feedback">Por favor,informe uma senha.</div>
 				</div>

@@ -13,18 +13,18 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 import br.jus.tream.DAO.FuncsUtils;
-import br.jus.tream.DAO.UsuarioDAOImpl;
-import br.jus.tream.dominio.Usuario;
+import br.jus.tream.DAO.PessoaDAOImpl;
+import br.jus.tream.dominio.Pessoa;
 
 @Namespace("/login")
 @ResultPath(value = "/")
 @ParentPackage(value = "default")
 public class LoginAction extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
-	SessionMap<String, Usuario> sessionmap;
+	SessionMap<String, Pessoa> sessionmap;
 	private String username;
 	private String userpass;
-	private Usuario usuario;
+	private Pessoa pessoa;
 
 	@Action(value = "frmSetup", results = { @Result(name = "success", location = "/frmLogin.jsp"),
 			@Result(name = "error", location = "/pages/frmLogin.jsp") })
@@ -36,8 +36,8 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			@Result(name = "error", location = "/frmLogin.jsp") })
 	public String doProcess() {
 		try { 
-			Usuario s = new Usuario();
-			s = UsuarioDAOImpl.getInstance().getBean(this.username);
+			Pessoa s = new Pessoa();
+			s = PessoaDAOImpl.getInstance().getBean(this.username);
 			if (s.getSenha().equals(FuncsUtils.getInstance().encriptar(userpass))) {
 				sessionmap.put("login", s);
 				addActionMessage(getText("login.sucesso"));
@@ -63,14 +63,14 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void setSession(Map map) {
 		sessionmap = (SessionMap) map;
-		sessionmap.put("login", this.usuario);
+		sessionmap.put("login", this.pessoa);
 	}
 
-	public SessionMap<String, Usuario> getSessionmap() {
+	public SessionMap<String, Pessoa> getSessionmap() {
 		return sessionmap;
 	}
 
-	public void setSessionmap(SessionMap<String, Usuario> sessionmap) {
+	public void setSessionmap(SessionMap<String, Pessoa> sessionmap) {
 		this.sessionmap = sessionmap;
 	}
 
@@ -90,12 +90,12 @@ public class LoginAction extends ActionSupport implements SessionAware {
 		this.userpass = userpass;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 }
