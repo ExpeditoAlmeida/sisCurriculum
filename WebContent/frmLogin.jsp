@@ -155,7 +155,10 @@ body, html {
 	                <input type="text" name="username" class="form-control" placeholder="Usuário" required autofocus autocomplete="off">
 	                <input type="password" name = "userpass" class="form-control" placeholder="chave de acesso" required autocomplete="off">
 	                
-	                <button class="btn btn-primary btn-block" type="submit">Entrar</button>                
+	                <button class="btn btn-primary btn-block" type="submit">Entrar</button> 
+	                <br> <a href="${pageContext.request.contextPath}/usuario/frmCad" style="color: #1E90FF;">
+				 			Não  cadastrando? Criar Cadastro
+          			  </a>               
        </form>
 	 
 	     <s:if test="hasActionErrors()">

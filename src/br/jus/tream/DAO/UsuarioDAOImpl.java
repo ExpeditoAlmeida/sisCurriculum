@@ -115,7 +115,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		
 		Usuario u0 = new Usuario();
 		u0.setNome("User");
-		u0.setCpf("1231231231");
+//		u0.setCpf("1231231231");
 		u0.setEmail("a@a");
 		u0.setSenha("123");		
 		dao.inserir(u0);
