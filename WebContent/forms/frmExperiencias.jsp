@@ -4,7 +4,7 @@
 
 	<div class="card">
 		<div class="card-header text-white bg-dark">Cadastro de
-			Experiência</div>
+			experiência</div>
 		<div class="card-body">
 
 			<form action="#" method="post" name="form1" id="form1"
@@ -13,7 +13,7 @@
 					<input type="hidden" id="id" name="experiencias.id"
 						value="${experiencias.id}">
 				</s:if>
-					<label for="nome">nome:</label>
+					<label for="nome">Nome </label>
 				<s:select label="Pessoa" headerKey="" headerValue="---Selecione---"
 					list="lstPessoa" listKey="id" listValue="nome"
 					name="experiencias.pessoa.id" theme="simple"
@@ -21,9 +21,9 @@
 				<div class="invalid-feedback">Por favor, selecione seu nome.</div>
 
 				<div class="form-row">
-					<label for="nome">*Nome da Empresa:</label> <input type="text"
+					<label for="nome">Nome da Empresa:</label> <input type="text"
 						class="form-control" id="nome" name="experiencias.nomeEmpresa"
-						placeholder="Informe seu nome" value="${experiencias.nomeEmpresa}"
+						placeholder="Informe a empresa" value="${experiencias.nomeEmpresa}"
 						maxlength="100" required>
 					<div class="invalid-feedback">Por favor, informe o nome da
 						empresa.</div>
@@ -33,7 +33,7 @@
 					<div class="col-md-4 mb-4">
 						<label for="cargo">Cargo</label> <input type="text"
 							class="form-control" id="cargo" name="experiencias.cargo"
-							value="${experiencias.cargo}" placeholder="Informe seu cargo"
+							value="${experiencias.cargo}" placeholder="Carpinteiro"
 							maxlength="100" required>
 						<div class="invalid-feedback">Por favor, informe seu cargo.</div>
 					</div>
@@ -62,7 +62,7 @@
 				<div class="mb-12">
 					<label for="atribuicoes">Atribuições</label>
 					<textarea class="form-control" id="atribuicoes"
-						placeholder="Informe suas Atribuições"
+						placeholder="Planeja trabalhos de carpintaria, prepara canteiro de obras e monta formas metálicas. Confecciona formas de madeira e forro de laje (painéis). Constrói andaimes e proteção de estruturas de madeira para telhado, portas e esquadrias.  "
 						name="experiencias.descricaoAtribuicoes" maxlength="240" required>${experiencias.descricaoAtribuicoes}</textarea>
 					<div class="invalid-feedback">Por favor, informe as suas
 						respectivas Atribuicoes.</div>

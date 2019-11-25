@@ -3,8 +3,7 @@
 <div class="container">
 
 	<div class="card">
-		<div class="card-header text-white bg-dark">Cadastro de
-			Experiência</div>
+		<div class="card-header text-white bg-dark">Cadastre-se</div>
 		<div class="card-body">
 
 			<form action="#" method="post" name="form1" id="form1"
@@ -13,22 +12,22 @@
 					<input type="hidden" id="id" name="experiencias.id"
 						value="${usuario.id}">
 				</s:if>
-					
+
 
 				<div class="form-row">
-					<label for="cpf">*cpf:</label> <input type="text"
+					<label for="cpf">*Nome de usuário:</label> <input type="text"
 						class="form-control" id="cpf" name="usuario.nome"
-						placeholder="Informe seu nome" value="${usuario.nome}"
+						placeholder="Digite aqui seu nome de usuário." value="${usuario.nome}"
 						maxlength="100" required>
-					<div class="invalid-feedback">Por favor, informe o seu cpf.</div>
+					<div class="invalid-feedback">Por favor, informe o nome de usuário.</div>
 				</div>
-				
+
 				<div class="form-row">
 					<label for="cpf">*senha:</label> <input type="text"
 						class="form-control" id="cpf" name="usuario.senha"
-						placeholder="Informe uma senha" value="${usuario.senha}"
+						placeholder="Digite aqui uma senha" value="${usuario.senha}"
 						maxlength="100" required>
-					<div class="invalid-feedback">Por favor, uma senha.</div>
+					<div class="invalid-feedback">Por favor,informe uma senha.</div>
 				</div>
 				</br>
 				<button class="btn btn-success" id="btnSave" type="button">Enviar</button>
