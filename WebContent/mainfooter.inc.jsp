@@ -1,4 +1,4 @@
-<%@page import="br.jus.tream.dominio.BeanLogin"%>
+<%@page import="br.com.siscurriculum.dominio.BeanLogin"%>
 		<div class="bg_load"></div>
 		  <div class="wrapper">
 		    <div class="inner">

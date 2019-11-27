@@ -124,6 +124,42 @@
 					</s:iterator>
 				</tbody>
 			</table>
+			
+			<div class="card-header text-white bg-dark">Experiência</div>
+		<div class="card-body">
+
+			<table id="tbeleicao" class="table table-sm table-hover">
+				<thead>
+					<tr>
+						<th width="3%">Nome da Instituição</th>
+						<th width="2%">Nome do Curso</th>
+						<th width="2%">Concluído</th>
+						<th width="2%">Data Início</th>
+						<th width="5%">Data Término</th>
+						<th width="2%">Menu</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<s:iterator value="lstEducacao">
+						<tr id="tr${id}">
+							<td><s:property value="nomeInstituicao" /></td>
+							<td><s:property value="nomeCurso" /></td>
+							<td><s:property value="status" /></td>
+							<td><s:property value="%{getText('format.date',{dtInicio})}"/></td>
+							<td><s:property value="%{getText('format.date',{dtTermino})}"/></td>
+							
+							<td><a
+								href="${pageContext.request.contextPath}/educacao/frmEditar?educacao.id=${id}"
+								id="idedit" class="btn btn-sm btn-warning" role="button"> <i
+									class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							</a></td>
+
+
+						</tr>
+					</s:iterator>
+				</tbody>
+			</table>
 </div>
 
 

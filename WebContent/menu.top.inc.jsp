@@ -1,4 +1,4 @@
-<%@page import="br.jus.tream.dominio.Pessoa"%>
+<%@page import="br.com.siscurriculum.dominio.Pessoa"%>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 	<!--  <a class="navbar-brand" href="#">AnaJÉ</a> -->
@@ -28,6 +28,9 @@
 						Pessoais</a> 
 						<a class="dropdown-item"
 						href="${pageContext.request.contextPath}/experiencias/frmCad">Cadastro de Experiências
+						</a> 
+						<a class="dropdown-item"
+						href="${pageContext.request.contextPath}/educacao/frmCad">Cadastro de Formação
 						</a> 
 						<a class="dropdown-item"
 						href="${pageContext.request.contextPath}/pessoa/listar">Listar</a>
