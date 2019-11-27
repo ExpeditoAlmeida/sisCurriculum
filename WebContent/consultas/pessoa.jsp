@@ -27,7 +27,7 @@
 					<tr id="tr${id}">
 						<td><s:property value="nome" /></td>
 						<td><s:property value="cpf" /></td>
-						<td><s:property value="dtNascimento" /></td>
+						<td><s:property value="%{getText('format.date',{dtNascimento})}"/></td>
 						<td><s:property value="estadoCivil" /></td>
 						<td><s:property value="email" /></td>
 						<td><s:property value="telefone1" /></td>

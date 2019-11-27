@@ -149,11 +149,12 @@ body, html {
         <div class="card card-container">
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
           <div class='login-icon'>
-          <i class="fa fa-user-o fa-5x" aria-hidden="true"></i>
+          
+          <i class="fa fa-user-o fa-5x"  aria-hidden="true"></i>
            </div>
              <form class="form-signin" action="${pageContext.request.contextPath}/login/process" method="post" name="frmLogin">
-	                <input type="text" name="username" class="form-control" placeholder="Usuário" required autofocus autocomplete="off">
-	                <input type="password" name = "userpass" class="form-control" placeholder="chave de acesso" required autocomplete="off">
+	                <input type="text" name="username" class="form-control" placeholder="Email" required autofocus autocomplete="off">
+	                <input type="password" name = "userpass" class="form-control" placeholder="Senha" required autocomplete="off">
 	                
 	                <button class="btn btn-primary btn-block" type="submit">Entrar</button> 
 	                <br> <a href="${pageContext.request.contextPath}/pessoa/frmCadUser" style="color: #1E90FF;">

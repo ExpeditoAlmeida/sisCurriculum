@@ -16,22 +16,22 @@
 				<div class="col-md-6 mb-6">
 						<label for="email">Email </label> <input type="text"
 							class="form-control" id="email" name="pessoa.email"
-							placeholder="Informe seu nome" value="${pessoa.email}"
+							placeholder="Informe seu email de cadastro" value="${pessoa.email}"
 							maxlength="100" required>
 						<div class="invalid-feedback">Por favor, informe seu email.</div>
 					</div>
 					
 					<div class="col-md-6 mb-6">
-						<label for="email">Confirma Senha </label> <input type="password"
+						<label for="senha">*Confirma Senha </label> <input type="password"
 							class="form-control" id="senha" name="pessoa.senha"
-							placeholder="Informe seu senha" value=""
+							placeholder="Informe sua senha" value=""
 							maxlength="100" required>
-						<div class="invalid-feedback">Por favor, informe seu email.</div>
+						<div class="invalid-feedback">Por favor, confirme a senha.</div>
 					</div>
 					
 					<hr />
 					
-					<label for="nome">Nome </label> <input type="text"
+					<label for="nome">*Nome </label> <input type="text"
 						class="form-control" id="nome" name="pessoa.nome"
 						placeholder="Informe seu nome" value="${pessoa.nome}"
 						maxlength="150" required>
@@ -40,7 +40,7 @@
 
 				<div class="form-row">
 					<div class="col-md-4 mb-4">
-						<label for="cpf">CPF </label> <input type="text"
+						<label for="cpf">*CPF </label> <input type="text"
 							class="form-control" id="cpf" name="pessoa.cpf"
 							value="${pessoa.cpf}" placeholder="Informe seu CPF"
 							maxlength="11"
@@ -51,7 +51,7 @@
 
 
 					<div class="col-md-4 mb-4">
-						<label for="dtNascimento">Data de Nascimento </label> <input
+						<label for="dtNascimento">*Data de Nascimento </label> <input
 							type="date" class="form-control" name="pessoa.dtNascimento"
 							id="dtNascimento"
 							value="<s:property value="%{getText('format.dtUSA',{pessoa.dtNascimento})}"/>"
@@ -73,16 +73,16 @@
 
 				<div class="form-row">
 					
-					<div class="col-md-3 mb-3">
-						<label for="telefone1">Telefone </label> <input type="text"
+					<div class="col-md-6 mb-6">
+						<label for="telefone1">*Telefone </label> <input type="text"
 							class="form-control" id="telefone1" name="pessoa.telefone1"
 							placeholder="Informe seu telefone" value="${pessoa.telefone1}"
 							maxlength="15" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
 						<div class="invalid-feedback">Por favor, informe seu
 							telefone.</div>
 					</div>
-					<div class="col-md-3 mb-3">
-						<label for="telefone2">Telefone</label> <input type="text"
+					<div class="col-md-6 mb-6">
+						<label for="telefone2">*Telefone</label> <input type="text"
 							class="form-control" id="telefone2" name="pessoa.telefone2"
 							placeholder="Informe outro telefone" value="${pessoa.telefone2}"
 							maxlength="15" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
@@ -93,7 +93,7 @@
 				<hr />
 				<div class="form-row">
 					<div class="col-md-4 mb-4">
-						<label for="cep">CEP </label> <input type="text"
+						<label for="cep">*CEP </label> <input type="text"
 							class="form-control" id="cep" name="pessoa.cep"
 							placeholder="Ex: 69070-000" value="${pessoa.cep}" maxlength="10"
 							onkeypress='return event.charCode >= 48 && event.charCode <= 57'
@@ -102,14 +102,14 @@
 					</div>
 
 					<div class="col-md-4 mb-4">
-						<label for="cidade">Cidade </label> <input type="text"
+						<label for="cidade">*Cidade </label> <input type="text"
 							class="form-control" id="cidade" name="pessoa.cidade"
 							placeholder="Informe a cidade" value="${pessoa.cidade}"
 							maxlength="50" required>
 						<div class="invalid-feedback">Por favor, informe a cidade.</div>
 					</div>
 					<div class="col-md-4 mb-4">
-						<label for="telefone2">UF</label> <input type="text"
+						<label for="telefone2">*UF</label> <input type="text"
 							class="form-control" id="telefone2" name="pessoa.uf"
 							placeholder="Ex : AM" value="${pessoa.uf}" maxlength="2" required>
 						<div class="invalid-feedback">Por favor, informe um estado.</div>
@@ -118,7 +118,7 @@
 
 				<div class="form-row">
 					<div class="col-md-4 mb-4">
-						<label for="logradouro">Logradouro </label> <input type="text"
+						<label for="logradouro">*Logradouro </label> <input type="text"
 							class="form-control" id="logradouro" name="pessoa.logradouro"
 							placeholder="Ex: Rua Joaquim Nabuco"
 							value="${pessoa.logradouro}" maxlength="150" required>
@@ -126,7 +126,7 @@
 					</div>
 
 					<div class="col-md-4 mb-4">
-						<label for="cidade">Número </label> <input type="text"
+						<label for="cidade">*Número </label> <input type="text"
 							class="form-control" id="cidade" name="pessoa.numero"
 							placeholder="ex : 77" value="${pessoa.numero}"
 							maxlength="20" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
@@ -134,7 +134,7 @@
 							casa.</div>
 					</div>
 					<div class="col-md-4 mb-4">
-						<label for="bairro">Bairro </label> <input type="text"
+						<label for="bairro">*Bairro </label> <input type="text"
 							class="form-control" id="bairro" name="pessoa.bairro"
 							placeholder="Ex: AM" value="${pessoa.bairro}" maxlength="50"
 							required>

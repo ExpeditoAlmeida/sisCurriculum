@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 	<!--  <a class="navbar-brand" href="#">AnaJÉ</a> -->
 	<a class="navbar-brand" href="#"> <img class="topmnu"
-		src="${pageContext.request.contextPath}/images/sis.png" alt="AnaJé"
+		src="${pageContext.request.contextPath}/images/sis.png" alt=""
 		width="70" height="70">
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"

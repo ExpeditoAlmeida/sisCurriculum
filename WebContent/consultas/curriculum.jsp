@@ -36,18 +36,18 @@
 				<ul class="list-unstyled contact-list">
 					<li class="email"><i class="fas fa-envelope"></i>${pessoa.email}</li>
 					<li class="phone"><i class="fas fa-phone"></i><a
-						href="tel:0123 456 789">${pessoa.telefone1}</a></li>
+						href="#">${pessoa.telefone1}</a></li>
 					<li class="phone"><i class="fas fa-phone"></i><a
-						href="tel:0123 456 789">${pessoa.telefone2}</a></li>
+						href="#">${pessoa.telefone2}</a></li>
 					<li class="website"><i class="fas fa-globe"></i><a
-						href="https://themes.3rdwavemedia.com/bootstrap-templates/resume/orbit-free-resume-cv-bootstrap-theme-for-developers/"
+						href="#"
 						target="_blank">portfoliosite.com</a></li>
 					<li class="linkedin"><i class="fab fa-linkedin-in"></i><a
 						href="#" target="_blank">linkedin.com/in/alandoe</a></li>
 					<li class="github"><i class="fab fa-github"></i><a href="#"
 						target="_blank">github.com/username</a></li>
 					<li class="twitter"><i class="fab fa-twitter"></i><a
-						href="https://twitter.com/3rdwave_themes" target="_blank">@twittername</a></li>
+						href="#" target="_blank">@twittername</a></li>
 				</ul>
 			</div>
 			<!--//contact-container-->

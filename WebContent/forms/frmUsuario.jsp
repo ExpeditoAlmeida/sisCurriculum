@@ -10,19 +10,19 @@
 				class="needs-validation_" novalidate>
 			
 				<div class="form-row">
-					<label for="cpf">*Nome de usuário:</label> <input type="text"
+					<label for="cpf">*Email</label> <input type="text"
 						class="form-control" id="cpf" name="pessoa.email"
 						placeholder="Digite aqui seu nome de usuário." value="${pessoa.email}"
 						maxlength="100" required>
-					<div class="invalid-feedback">Por favor, informe o nome de usuário.</div>
+					<div class="invalid-feedback">Por favor, informe seu email.</div>
 				</div>
 
 				<div class="form-row">
-					<label for="cpf">*senha:</label> <input type="text"
+					<label for="cpf">*Senha</label> <input type="password"
 						class="form-control" id="cpf" name="pessoa.senha"
 						placeholder="Digite aqui uma senha" value="${pessoa.senha}"
-						maxlength="100" required>
-					<div class="invalid-feedback">Por favor,informe uma senha.</div>
+						maxlength="30" required>
+					<div class="invalid-feedback">Por favor,informe sua senha.</div>
 				</div>
 				</br>
 				<button class="btn btn-success" id="btnSave" type="button">Enviar</button>
