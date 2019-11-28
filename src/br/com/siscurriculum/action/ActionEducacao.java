@@ -102,7 +102,14 @@ public class ActionEducacao extends ActionSupport {
 	public String doAtualizar() {
 		BeanResult beanResult = new BeanResult();
 		try {
-			beanResult.setRet(dao.atualizar(educacao));
+			HttpSession session = ServletActionContext.getRequest().getSession(true);
+			Pessoa b = (Pessoa) session.getAttribute("login");
+			Pessoa pessoa = new Pessoa();
+			
+			pessoa.setId(b.getId());
+			educacao.setPessoa(pessoa);
+			
+			beanResult.setRet(dao.atualizar(this.educacao));
 			if (beanResult.getRet() == 1) {
 				beanResult.setMensagem(getText("alterar.sucesso"));
 				beanResult.setType("success");
@@ -177,5 +184,7 @@ public class ActionEducacao extends ActionSupport {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	
 
 }

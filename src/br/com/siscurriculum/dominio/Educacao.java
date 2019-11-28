@@ -21,6 +21,7 @@ public class Educacao implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	private String nomeInstituicao;
 
 	private String nomeCurso;

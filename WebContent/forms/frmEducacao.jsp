@@ -6,76 +6,69 @@
 		<div class="card-header text-white bg-dark">Cadastro de
 			experiência</div>
 		<div class="card-body">
-			<div>
-				<form action="#" method="post" name="form1" id="form1"
-					class="needs-validation_" novalidate>
-					<s:if test='educacao.id != null'>
-						<input type="hidden" id="id" name="educacao.id"
-							value="${educacao.id}">
-					</s:if>
+			<form action="#" method="post" name="form1" id="form1"
+				class="needs-validation_" novalidate>
+				<s:if test='educacao.id != null'>
+					<input type="hidden" id="id" name="educacao.id"
+						value="${educacao.id}">
+				</s:if>
 
-					<div class="form-row">
-						<label for="nome">Nome da Instituição:</label> <input type="text"
-							class="form-control" id="nome" name="educacao.nomeInstituicao"
-							placeholder="Informe a instituição"
-							value="${educacao.nomeInstituicao}" maxlength="100" required>
-						<div class="invalid-feedback">Por favor, informe o nome da
-							instituição.</div>
-					</div>
-
-
-					<div class="form-row">
-
-						<div class="col-md-12 mb-12">
-							<label for="cargo">Nome do Curso</label> <input type="text"
-								class="form-control" id="cargo" name="educacao.nomeCurso"
-								value="${educacao.nomeCurso}"
-								placeholder="Informe o nome do curso" maxlength="100" required>
-							<div class="invalid-feedback">Por favor, informe nome do
-								curso.</div>
-						</div>
-
-
-					</div>
-			</div>
-
-
-
-			<div class="form-row">
-				<div class="col-md-4 mb-4">
-
-					<label for="inputTipo">Concluído</label>
-					<s:select label="" class="form-control" name="educacao.status"
-						headerKey="-1" headerValue="--Selecione--"
-						list="#{'0':'não','1':'sim','2':'trancado','3':'outro'}"
-						value="educacao.status" required="true" />
+				<div class="form-row">
+					<label for="nome">Nome da Instituição:</label> <input type="text"
+						class="form-control" id="nome" name="educacao.nomeInstituicao"
+						placeholder="Informe a instituição"
+						value="${educacao.nomeInstituicao}" maxlength="100" required>
+					<div class="invalid-feedback">Por favor, informe o nome da
+						instituição.</div>
 				</div>
 
 
-				<div class="col-md-4 mb-4">
-					<label for="dtentrada">Data Início</label> <input type="date"
-						class="form-control" name="experiencias.dtEntrada" id="dtentrada"
-						value="<s:property value="%{getText('format.dtUSA',{educacao.dtInicio})}"/>"
-						required>
+				<div class="form-row">
+
+					<div class="col-md-12 mb-12">
+						<label for="cargo">Nome do Curso</label> <input type="text"
+							class="form-control" id="cargo" name="educacao.nomeCurso"
+							value="${educacao.nomeCurso}"
+							placeholder="Informe o nome do curso" maxlength="100" required>
+						<div class="invalid-feedback">Por favor, informe nome do
+							curso.</div>
+					</div>
+
+				</div>
+				<div class="form-row">
+					<div class="col-md-4 mb-4">
+
+						<label for="inputTipo">Concluído</label>
+						<s:select label="" class="form-control" name="educacao.status"
+							headerKey="-1" headerValue="--Selecione--"
+							list="#{'0':'não','1':'sim','2':'trancado','3':'outro'}"
+							value="educacao.status" required="true" />
+					</div>
+
+
+					<div class="col-md-4 mb-4">
+						<label for="dtInicio">*Data de início </label> <input type="date"
+							class="form-control" name="educacao.dtInicio" id="dtInicio"
+							value="<s:property value="%{getText('format.dtUSA',{educacao.dtInicio})}"/>"
+							required>
 						<div class="invalid-feedback">Por favor, informe a data de
-							Início.</div>
-			
+							início.</div>
+					</div>
+
+					<div class="col-md-4 mb-4">
+						<label for="dtTermino">*Data término</label> <input type="date"
+							class="form-control" name="educacao.dtTermino" id="dtTermino"
+							value="<s:property value="%{getText('format.dtUSA',{educacao.dtTermino})}"/>"
+							required>
+						<div class="invalid-feedback">Por favor, informe a data de
+							término.</div>
+					</div>
+
 				</div>
 
-				<div class="col-md-4 mb-4">
-					<label for="dtSaida">Data Término</label> <input type="date"
-						class="form-control" name="experiencias.dtSaida" id="dtSaida"
-						value="<s:property value="%{getText('format.dtUSA',{educacao.dtTermino})}"/>"
-						required>
-					<div class="invalid-feedback">Por favor, informe a data de
-						Término.</div>
-				</div>
+				<br />
 
-			</div>
-
-			<br />
-
-			<button class="btn btn-success" id="btnSave" type="button">Enviar</button>
+				<button class="btn btn-success" id="btnSave" type="button">Enviar</button>
 			</form>
 		</div>
 	</div>

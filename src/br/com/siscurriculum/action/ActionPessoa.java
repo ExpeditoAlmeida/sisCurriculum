@@ -31,10 +31,11 @@ import br.com.siscurriculum.dominio.Pessoa;
 @ParentPackage(value = "default")
 public class ActionPessoa extends ActionSupport {
 	private List<Pessoa> lstPessoa;
-	private Pessoa pessoa;
 	private List<Experiencias> lstExperiencias;
 	private List<Educacao> lstEducacao;
+	private Pessoa pessoa;
 	private Experiencias experiencias;
+	private Educacao educacao;
 	private BeanResult result;
 	private final static PessoaDAO dao = PessoaDAOImpl.getInstance();
 	private final static ExperienciasDAO daoExperiencias = ExperienciasDAOImpl.getInstance();
@@ -48,10 +49,10 @@ public class ActionPessoa extends ActionSupport {
 
 			HttpSession session = ServletActionContext.getRequest().getSession(true);
 			Pessoa b = (Pessoa) session.getAttribute("login");
-
 			this.lstPessoa = dao.listarPorIdPessoa(b.getId());
 			this.lstExperiencias = daoExperiencias.listarPorIdPessoa(b.getId());
 			this.lstEducacao = daoEducacao.listarPorIdPessoa(b.getId());
+
 		} catch (Exception e) {
 			addActionError(getText("listar.error"));
 			return "error";
@@ -66,6 +67,7 @@ public class ActionPessoa extends ActionSupport {
 			// this.experiencias = daoExperiencias.getBean(id);
 			this.pessoa = dao.getBean(this.pessoa.getId());
 			this.lstExperiencias = daoExperiencias.listarPorIdPessoa(pessoa.getId());
+			this.lstEducacao = daoEducacao.listarPorIdPessoa(pessoa.getId());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -193,14 +195,6 @@ public class ActionPessoa extends ActionSupport {
 		this.lstPessoa = lstPessoa;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
-	}
-
 	public List<Experiencias> getLstExperiencias() {
 		return lstExperiencias;
 	}
@@ -217,12 +211,28 @@ public class ActionPessoa extends ActionSupport {
 		this.lstEducacao = lstEducacao;
 	}
 
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
 	public Experiencias getExperiencias() {
 		return experiencias;
 	}
 
 	public void setExperiencias(Experiencias experiencias) {
 		this.experiencias = experiencias;
+	}
+
+	public Educacao getEducacao() {
+		return educacao;
+	}
+
+	public void setEducacao(Educacao educacao) {
+		this.educacao = educacao;
 	}
 
 	public BeanResult getResult() {

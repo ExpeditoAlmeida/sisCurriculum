@@ -35,34 +35,26 @@
 			<div class="contact-container container-block ">
 				<ul class="list-unstyled contact-list">
 					<li class="email"><i class="fas fa-envelope"></i>${pessoa.email}</li>
-					<li class="phone"><i class="fas fa-phone"></i><a
-						href="#">${pessoa.telefone1}</a></li>
-					<li class="phone"><i class="fas fa-phone"></i><a
-						href="#">${pessoa.telefone2}</a></li>
-					<li class="website"><i class="fas fa-globe"></i><a
-						href="#"
-						target="_blank">portfoliosite.com</a></li>
-					<li class="linkedin"><i class="fab fa-linkedin-in"></i><a
-						href="#" target="_blank">linkedin.com/in/alandoe</a></li>
-					<li class="github"><i class="fab fa-github"></i><a href="#"
-						target="_blank">github.com/username</a></li>
-					<li class="twitter"><i class="fab fa-twitter"></i><a
-						href="#" target="_blank">@twittername</a></li>
+					<li class="phone"><i class="fas fa-phone"></i><a href="#">${pessoa.telefone1}</a></li>
+					<li class="phone"><i class="fas fa-phone"></i><a href="#">${pessoa.telefone2}</a></li>
+
 				</ul>
 			</div>
 			<!--//contact-container-->
 			<div class="education-container container-block">
-				<h2 class="container-block-title">Education</h2>
 				<div class="item">
-					<h4 class="degree">MSc in Computer Science</h4>
-					<h5 class="meta">University of London</h5>
-					<div class="time">2011 - 2012</div>
-				</div>
-				<!--//item-->
-				<div class="item">
-					<h4 class="degree">BSc in Applied Mathematics</h4>
-					<h5 class="meta">Bristol University</h5>
-					<div class="time">2007 - 2011</div>
+					<s:iterator value="lstEducacao">
+						<h4 class="degree">
+							Instituição:
+							<s:property value="nomeInstituicao" />
+						</h4>
+						<h5 class="meta">
+							Curso:
+							<s:property value="nomeCurso" />
+						</h5>
+						<div class="time"><s:property value="%{getText('format.date',{dtInicio})}" /> - <s:property value="%{getText('format.date',{dtTermino})}" /></div>
+
+					</s:iterator>
 				</div>
 				<!--//item-->
 			</div>
@@ -89,7 +81,8 @@
 					${pessoa.nome}
 				</h2>
 
-				<p>	<b>Endereço :</b> ${pessoa.logradouro}, <b>n° : </b>${pessoa.numero}
+				<p>
+					<b>Endereço :</b> ${pessoa.logradouro}, <b>n° : </b>${pessoa.numero}
 					<b>Bairro : </b>${pessoa.bairro} <b>Cidade : </b>${pessoa.cidade}-${pessoa.uf}</p>
 			</section>
 			<!--//section-->
@@ -104,20 +97,24 @@
 
 
 					<s:iterator value="lstExperiencias">
-							
-						<b>Nome Empresa :</b> <s:property value="nomeEmpresa" />
+
+						<b>Nome Empresa :</b>
+						<s:property value="nomeEmpresa" />
 						</br>
-						<b>Cargo :</b><s:property value="cargo" />
+						<b>Cargo :</b>
+						<s:property value="cargo" />
 						</br>
 						<b>Data Entrada :</b>
 						<s:property value="%{getText('format.date',{dtEntrada})}" />
 						<b>Data Saída :</b>
-						<s:property value="%{getText('format.date',{dtSaida})}" /></br>
+						<s:property value="%{getText('format.date',{dtSaida})}" />
+						</br>
 
-						<b>Atribuições :</b><s:property value="descricaoAtribuicoes" />
+						<b>Atribuições :</b>
+						<s:property value="descricaoAtribuicoes" />
 						</br>
 						</br>
-				
+
 
 					</s:iterator>
 

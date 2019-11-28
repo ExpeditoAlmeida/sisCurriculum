@@ -121,7 +121,14 @@ public class ActionExperiencias extends ActionSupport {
 	public String doAtualizar() {
 		BeanResult beanResult = new BeanResult();
 		try {
+			HttpSession session = ServletActionContext.getRequest().getSession(true);
+			Pessoa b = (Pessoa) session.getAttribute("login");
+			Pessoa pessoa = new Pessoa();
+			pessoa.setId(b.getId());
+			experiencias.setPessoa(pessoa);
+			
 			beanResult.setRet(dao.atualizar(this.experiencias));
+			
 			if (beanResult.getRet() == 1) {
 				beanResult.setMensagem(getText("alterar.sucesso"));
 				beanResult.setType("success");
