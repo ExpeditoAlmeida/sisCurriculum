@@ -112,14 +112,12 @@
 
 						<b>Atribuições :</b>
 						<s:property value="descricaoAtribuicoes" />
-						</br>
-						</br>
-
-
+						
 					</s:iterator>
 
 					<div class="details"></div>
 					<!--//details-->
+					<p></p>
 				</div>
 				<!--//item-->
 			</section>
