@@ -36,12 +36,12 @@ public class ActionExperiencias extends ActionSupport {
 	@Action(value = "listar", results = { @Result(name = "success", location = "/consultas/"),
 			@Result(name = "error", location = "/result.jsp") }, interceptorRefs = @InterceptorRef("authStack"))
 	public String listar() {
-		try {		
+		try {
 			HttpSession session = ServletActionContext.getRequest().getSession(true);
 			Pessoa b = (Pessoa) session.getAttribute("login");
-			
+
 			this.lstExperiencias = dao.listarPorIdPessoa(b.getId());
-			
+
 		} catch (Exception e) {
 			addActionError(getText("listar.error"));
 			return "error";
@@ -55,12 +55,12 @@ public class ActionExperiencias extends ActionSupport {
 	// , interceptorRefs = @InterceptorRef("authStack")
 	)
 	public String listarJson() {
-		try {		
-		HttpSession session = ServletActionContext.getRequest().getSession(true);
-		Pessoa b = (Pessoa) session.getAttribute("login");
-		
-		this.lstExperiencias = dao.listarPorIdPessoa(b.getId());
-		
+		try {
+			HttpSession session = ServletActionContext.getRequest().getSession(true);
+			Pessoa b = (Pessoa) session.getAttribute("login");
+
+			this.lstExperiencias = dao.listarPorIdPessoa(b.getId());
+
 		} catch (Exception e) {
 			addActionError(getText("listar.error"));
 			return "error";
@@ -72,7 +72,7 @@ public class ActionExperiencias extends ActionSupport {
 			@Result(name = "error", location = "/pages/error.jsp") }, interceptorRefs = @InterceptorRef("authStack"))
 	public String doFrmEditar() {
 		try {
-			
+
 			this.experiencias = dao.getBean(this.experiencias.getId());
 
 		} catch (Exception e) {
@@ -98,7 +98,7 @@ public class ActionExperiencias extends ActionSupport {
 			Pessoa pessoa = new Pessoa();
 			pessoa.setId(b.getId());
 			experiencias.setPessoa(pessoa);
-			
+
 			beanResult.setRet(dao.adicionar(experiencias));
 			if (beanResult.getRet() == 1) {
 				beanResult.setMensagem(getText("inserir.sucesso"));
@@ -126,9 +126,9 @@ public class ActionExperiencias extends ActionSupport {
 			Pessoa pessoa = new Pessoa();
 			pessoa.setId(b.getId());
 			experiencias.setPessoa(pessoa);
-			
+
 			beanResult.setRet(dao.atualizar(this.experiencias));
-			
+
 			if (beanResult.getRet() == 1) {
 				beanResult.setMensagem(getText("alterar.sucesso"));
 				beanResult.setType("success");
@@ -152,6 +152,11 @@ public class ActionExperiencias extends ActionSupport {
 		BeanResult beanResult = new BeanResult();
 		beanResult.setRet(0);
 		try {
+			HttpSession session = ServletActionContext.getRequest().getSession(true);
+			Pessoa b = (Pessoa) session.getAttribute("login");
+			Pessoa pessoa = new Pessoa();
+			pessoa.setId(b.getId());
+			experiencias.setPessoa(pessoa);
 			beanResult.setRet(dao.remover(this.experiencias));
 			beanResult.setMensagem(getText("remover.sucesso"));
 			beanResult.setType("success");

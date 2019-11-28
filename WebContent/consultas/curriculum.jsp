@@ -53,7 +53,7 @@
 							<s:property value="nomeCurso" />
 						</h5>
 						<div class="time"><s:property value="%{getText('format.date',{dtInicio})}" /> - <s:property value="%{getText('format.date',{dtTermino})}" /></div>
-
+						</br>
 					</s:iterator>
 				</div>
 				<!--//item-->
@@ -112,7 +112,8 @@
 
 						<b>Atribuições :</b>
 						<s:property value="descricaoAtribuicoes" />
-						
+						</br>
+						</br>
 					</s:iterator>
 
 					<div class="details"></div>
