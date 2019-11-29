@@ -198,6 +198,7 @@ $( "[id*='excluir']" ).click(function(event) {
 			    	  if (data.ret==1){
 			    		  $('#tr'+id).fadeOut(); 
 			    		  swal("Remover", data.mensagem, data.type);
+			    		  location.reload();
 			    	  }
 			    	  else
 			    	  swal("Remover", "Ocorreu um erro ao remover", data.type);

@@ -119,7 +119,7 @@ public class ActionPessoa extends ActionSupport {
 	}
 
 	@Action(value = "frmCadUser", results = { @Result(name = "success", location = "/forms/frmUsuario.jsp"),
-			@Result(name = "error", location = "/pages/error.jsp") })
+			@Result(name = "error", location = "/pages/error.jsp") }, interceptorRefs = @InterceptorRef("authStack"))
 	public String frmCadUser() {
 		return "success";
 	}
@@ -168,19 +168,31 @@ public class ActionPessoa extends ActionSupport {
 	}
 
 	@Action(value = "remover", results = { @Result(name = "success", type = "json", params = { "root", "result" }),
-			@Result(name = "error", location = "/pages/resultAjax.jsp") }// , interceptorRefs =
-																			// @InterceptorRef("authStack")
+			@Result(name = "error", location = "/pages/resultAjax.jsp") }, interceptorRefs = @InterceptorRef("authStack")
 	)
 	public String doRemover() {
 		BeanResult beanResult = new BeanResult();
 		beanResult.setRet(0);
 		try {
+											
+			experiencias = new Experiencias();				
+			lstExperiencias = daoExperiencias.listarPorIdPessoa(pessoa.getId());									
+			for (Experiencias experiencias : lstExperiencias) {
+				int ret = daoExperiencias.remover(experiencias);
+			}
+			
+			educacao = new Educacao();				
+			lstEducacao = daoEducacao.listarPorIdPessoa(pessoa.getId());									
+			for (Educacao educacao : lstEducacao) {
+				int ret1 = daoEducacao.remover(educacao);
+			}
+			
 			beanResult.setRet(dao.remover(this.pessoa));
 			beanResult.setMensagem(getText("remover.sucesso"));
 			beanResult.setType("success");
 		} catch (Exception e) {
+			e.printStackTrace();
 			addActionError(getText("remover.error") + " Error: " + e.getMessage());
-			// r.setMensagem(getText("remover.error") + " Error: " + e.getMessage());
 			return "error";
 		}
 		this.result = beanResult;
